@@ -13,9 +13,11 @@ function myFunction() {
 function addtask(task) {
   // create li for task
   let li = document.createElement("li");
-  li.addEventListener("click", done(li));
+  let span = document.createElement("span");
+  li.appendChild(span);
+  span.addEventListener("click", done(li));
   let text = document.createTextNode(task);
-  li.appendChild(text);
+  span.appendChild(text);
   const ol = document.querySelector("#todo-list");
   ol.appendChild(li);
 
