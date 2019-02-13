@@ -29,7 +29,7 @@ button {
 	border: 2px solid transparent;
 	font-weight: 800;
 	font-size: 0.8rem;
-	background-color: #9099A2;
+	background-color: #9495b3;
 	color: #f3efef; 
 	margin: 0 1rem;
 	transition: color 1.5s;
@@ -63,7 +63,7 @@ input {
 	border-bottom: 2px solid #5e6a85;
 }
 
-li:hover {
+span:hover {
 	text-decoration: line-through;
 }
 
