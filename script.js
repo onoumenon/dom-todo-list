@@ -1,5 +1,5 @@
 // query selectors
-const input = document.querySelector("#input");
+let input = document.querySelector("#input");
 const submit = document.querySelector("#submit");
 
 // onload, create default list
@@ -19,16 +19,23 @@ function addtask(element) {
   li.appendChild(text);
   const ol = document.querySelector("#todo-list");
   ol.appendChild(li);
+  
   // create trash icon
-
+  let btn = document.createElement("BUTTON");
+  btn.addEventListener("click", remove(btn));
+  let btext = document.createTextNode("Remove 🗑️");
+  btn.appendChild(btext);
+  li.appendChild(btn);
+  
   // clear text from input field
- 
+  
 
 }
 
 submit.addEventListener("click", () => {
   if (input.value !== "") {
-    addtask(input.value);
+	addtask(input.value);
+	input.value.reset();
   } else {
     alert("Please input a task.");
   }
@@ -37,5 +44,11 @@ submit.addEventListener("click", () => {
 function done(li) {
   li.addEventListener("click", function() {
     li.classList.toggle("done");
+  });
+}
+
+function remove(btn) {
+  btn.addEventListener("click", function() {
+    btn.parentNode.remove();
   });
 }
