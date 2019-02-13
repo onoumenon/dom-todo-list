@@ -1,54 +1,57 @@
-// query selectors
 let input = document.querySelector("#input");
 const submit = document.querySelector("#submit");
+let todo = ["buy milk", "eat dinner", "nail javascript", "give feedback"];
 
 // onload, create default list
 function myFunction() {
-  const todo = ["buy milk", "eat dinner", "nail javascript", "give feedback"];
-
-  todo.forEach(element => {
-    addtask(element);
+  todo.forEach(task => {
+    addtask(task);
   });
 }
 
-function addtask(element) {
-  // create li w text
+
+function addtask(task) {
+  // create li for task
   let li = document.createElement("li");
   li.addEventListener("click", done(li));
-  let text = document.createTextNode(element);
+  let text = document.createTextNode(task);
   li.appendChild(text);
   const ol = document.querySelector("#todo-list");
   ol.appendChild(li);
-  
-  // create trash icon
+
+  // create trash 'x' icon
   let btn = document.createElement("BUTTON");
   btn.addEventListener("click", remove(btn));
-  let btext = document.createTextNode("Remove 🗑️");
+  let btext = document.createTextNode("✖");
   btn.appendChild(btext);
   li.appendChild(btn);
-  
-  // clear text from input field
-  
-
 }
 
+// addtask on click
 submit.addEventListener("click", () => {
-  if (input.value !== "") {
-	addtask(input.value);
-	input.value.reset();
-  } else {
-    alert("Please input a task.");
-  }
+  if (input.value) {
+    addtask(input.value);
+    input.value = "";
+  } else return;
 });
 
+// strikethrough when done
 function done(li) {
-  li.addEventListener("click", function() {
+  li.addEventListener("click", function () {
     li.classList.toggle("done");
   });
 }
 
+// remove li when trashed
 function remove(btn) {
-  btn.addEventListener("click", function() {
+  btn.addEventListener("click", function () {
     btn.parentNode.remove();
   });
 }
+
+// submit on keypress 'enter'
+input.addEventListener("keyup", function(event) {
+  if (event.key === 'Enter') {
+    submit.click();
+  }
+});
