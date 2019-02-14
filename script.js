@@ -24,7 +24,7 @@ function addtask(task) {
   // create trash 'x' icon
   let btn = document.createElement("BUTTON");
   btn.addEventListener("click", remove(btn));
-  let btext = document.createTextNode("✖");
+  let btext = document.createTextNode("✕");
   btn.appendChild(btext);
   li.appendChild(btn);
 }

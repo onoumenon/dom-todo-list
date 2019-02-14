@@ -63,10 +63,6 @@ input {
 	border-bottom: 2px solid #5e6a85;
 }
 
-span:hover {
-	text-decoration: line-through;
-}
-
 .done {
 	text-decoration: line-through;
 }
@@ -86,7 +82,12 @@ span:hover {
 		max-width: 40vw;
 		font-size: 2rem;
 	}
+
 	ul button {
 		margin-right: 5vw;
+	}
+	
+	span:hover {
+		text-decoration: line-through;
 	}
 }
